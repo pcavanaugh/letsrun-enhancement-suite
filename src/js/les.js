@@ -9,25 +9,24 @@
   var navTemplate = [
     '<div class="nav">',
     '<div class="headerBar"></div>',
-    '<div>',
-    '<input type="text" class="mySearchBar"/>',
+    '<div class="fixedNav">',
     '<ul class="fa-ul actionLinks">',
     '<li><i class="fa-li fa fa-pencil"></i><a href="http://www.letsrun.com/forum/post.php?board=1">Start Thread</a></li>',
     '<li><i class="fa-li fa fa-dot-circle-o"></i><a href="http://www.letsrun.com/forum/register.php">Register Account</a></li>',
-    '<li><i class="fa-li fa fa-spinner fa-exclamation-triangle"></i><a href="http://www.letsrun.com/forum/TOS.php">Read Rules</a></li>',
+    '<li><i class="fa-li fa fa-exclamation-triangle"></i><a href="http://www.letsrun.com/forum/TOS.php">Read Rules</a></li>',
     '</ul>',
     '<div class="subForumLinks">',
-    '<div>Main Message Board</div>',
-    '<div>Training Forum</div>',
-    '<div>High School Forum</div>',
-    '<div>College Track and Field</div>',
-    '<div>Shoes & Gear</div>',
+    '<div><a href="http://www.letsrun.com/forum/forum.php?board=1">Main Message Board</a></div>',
+    '<div><a href="http://www.letsrun.com/forum/forum.php?board=1&category=training">Training Forum</a></div>',
+    '<div><a href="http://www.letsrun.com/forum/forum.php?board=1&category=high_school">High School Forum</a></div>',
+    '<div><a href="http://www.letsrun.com/forum/forum.php?board=1&category=college">College Track and Field</a></div>',
+    '<div><a href="http://www.letsrun.com/forum/forum.php?board=1&category=shoes">Shoes & Gear</a></div>',
     '</div>',
     '<div class="otherLinks">',
-    '<div>What is LetsRun.com?</div>',
-    '<div>News Archive</div>',
-    '<div>Contact Us</div>',
-    '<div>Advertise</div>',
+    '<div><a href="http://www.letsrun.com/whats-letsrun-com/">What is LetsRun.com?</a></div>',
+    '<div><a href="http://www.letsrun.com/archive/">News Archive</a></div>',
+    '<div><a href="http://www.letsrun.com/contact-information-letsrun-com/">Contact Us</a></div>',
+    '<div><a href="http://www.letsrun.com/advertise.php">Advertise</a></div>',
     '</div>',
     '</div>',
     '</div>'
@@ -42,10 +41,14 @@
 
   $('.lock_post').remove();
 
-  $('.thread_list_container').append(navTemplate);
+  if (window.location.href.indexOf('forum.php') >= 0) {
+    $('.thread_list_container').append(navTemplate);
+  }
 
+
+  window.fixShit = function(selector) {
   //Fix the column order of the thread list
-  $('.threads_container .row').each(function(idx, val) {
+  $(selector).each(function(idx, val) {
     var row = $(val);
 
     //reorder the columns to be Subject/Last Post/Posts
@@ -67,6 +70,9 @@
     }
 
   });
+};
+
+fixShit('.threads_container .row');
 
   var $body = $('body');
 

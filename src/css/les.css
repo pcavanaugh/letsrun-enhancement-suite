@@ -93,6 +93,7 @@ li .subject_line {
 
 .post .author {
   color: black;
+  font-weight: bold;
 }
 
 .post_text {
@@ -105,8 +106,7 @@ li .subject_line {
 }
 
 .post {
-  margin-right: 10px !important;
-  margin-left: 10px !important;
+  width: calc(100% - 30px);
 }
 
 .post .subject {
@@ -126,7 +126,7 @@ li .subject_line {
 
 /* JRT's design */
 .threads_container .title {
-  width: calc(50%);
+  width: calc(75%);
   float: left;
   margin-left: 15px;
   white-space: nowrap;
@@ -181,7 +181,7 @@ li .subject_line {
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 0px;
-  min-height: 55px;
+  min-height: 50px;
 }
 
 .threads_container .post_dash {
@@ -204,8 +204,19 @@ li.row:nth-child(even) {
   width: 230px;
   float: left;
   height: 100%;
-  background-color: rgb(251, 247, 255);
-  border-left: 2px solid #E1E1E1;
+  
+}
+
+.thread_list {
+  border-right: 2px solid #E1E1E1;
+}
+
+.fixedNav {
+  position: fixed;
+  background-color: rgb(248, 249, 252);
+  width: 230px;
+  float: left;
+
 }
 
 .headerBar {
@@ -214,17 +225,23 @@ li.row:nth-child(even) {
   background-color: #E1E1E1 !important;
 }
 
+.searchContainer {
+  background-color: white;
+  border: 1px solid gray;
+}
+
 .mySearchBar {
   width: 85%;
   margin-left: 20px;
   margin-top: 10px;
+  border: 0px;
 }
 
 .postPreview {
   padding: 10px !important;
   margin: 10px;
-  background-color: #FDFCFF;
-  border: 1px solid gray;
+  background-color: rgb(248, 249, 252);
+  border: 2px solid #E1E1E1;
   border-radius: 4px;
   float: left;
   width: calc(100% - 20px);
@@ -273,4 +290,9 @@ body {
   margin-right: 0px !important;
 }
 
-
+.loadingBar {
+  width: 100%;
+  background-color: #E1E1E1;
+  height: 40px;
+  text-align: center;
+}
